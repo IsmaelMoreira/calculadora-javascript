@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora operacional - Bruno </title>
+
+        <link rel="stylesheet" href="index.css">
+        <script src="index.js"></script>
+
+    </head>
+    <body>
+        <div class="fundo">
+
+            <form name="calcform" method="post" action>
+                <fieldset class="alinhamento">
+                    <legend></legend>
+
+                    <input type="text" name="visor" id="visor" />
+
+                    <table id="calc" class="calculadora">
+                        <tr>
+                            <td><input type="button" name="num9" class="numero"
+                                    value="9" onclick="calculaNumero(9)" /></td>
+                            <td><input type="button" name="num8" class="numero"
+                                    value="8" onclick="calculaNumero(8)" /></td>
+                            <td><input type="button" name="num7" class="numero"
+                                    value="7" onclick="calculaNumero(7)" /></td>
+                            <td><input type="button" name="somar" class="oper"
+                                    value="+"
+                                    onclick="calcParse('somar')" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" name="num6" class="numero"
+                                    value="6" onclick="calculaNumero(6)" /></td>
+                            <td><input type="button" name="num5" class="numero"
+                                    value="5" onclick="calculaNumero(5)" /></td>
+                            <td><input type="button" name="num4" class="numero"
+                                    value="4" onclick="calculaNumero(4)" /></td>
+                            <td><input type="button" name="subtrair"
+                                    class="oper" value="-"
+                                    onclick="calcParse('subtrair')" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" name="num3" class="numero"
+                                    value="3" onclick="calculaNumero(3)" /></td>
+                            <td><input type="button" name="num2" class="numero"
+                                    value="2" onclick="calculaNumero(2)" /></td>
+                            <td><input type="button" name="num1" class="numero"
+                                    value="1" onclick="calculaNumero(1)" /></td>
+                            <td><input type="button" name="multiplicar"
+                                    class="oper" value="*"
+                                    onclick="calcParse('multiplicar')" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" name="num0" class="numero"
+                                    value="0" onclick="calculaNumero(0)" /></td>
+                            <td><input type="button" name="igual" class="numero"
+                                    value="="
+                                    onclick="calcParse('resultado')" /></td>
+                            <td><input type="button" name="limpar"
+                                    class="numero" value="AC"
+                                    onclick="calcLimpar()" /></td>
+                            <td><input type="button" name="dividir" class="oper"
+                                    value="/"
+                                    onclick="calcParse('dividir')" /></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </form>
+
+        </div>
+
+    </body>
+</html>
