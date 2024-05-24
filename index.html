@@ -1,76 +1,122 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calculadora operacional - Bruno </title>
-
-        <link rel="stylesheet" href="index.css">
-        <script src="index.js"></script>
-
-    </head>
-    <body>
-        <div class="fundo">
-
-            <form name="calcform" method="post" action>
-                <fieldset class="alinhamento">
-                    <legend></legend>
-
-                    <input type="text" name="visor" id="visor" />
-
-                    <table id="calc" class="calculadora">
-                        <tr>
-                            <td><input type="button" name="num9" class="numero"
-                                    value="9" onclick="calculaNumero(9)" /></td>
-                            <td><input type="button" name="num8" class="numero"
-                                    value="8" onclick="calculaNumero(8)" /></td>
-                            <td><input type="button" name="num7" class="numero"
-                                    value="7" onclick="calculaNumero(7)" /></td>
-                            <td><input type="button" name="somar" class="oper"
-                                    value="+"
-                                    onclick="calcParse('somar')" /></td>
-                        </tr>
-                        <tr>
-                            <td><input type="button" name="num6" class="numero"
-                                    value="6" onclick="calculaNumero(6)" /></td>
-                            <td><input type="button" name="num5" class="numero"
-                                    value="5" onclick="calculaNumero(5)" /></td>
-                            <td><input type="button" name="num4" class="numero"
-                                    value="4" onclick="calculaNumero(4)" /></td>
-                            <td><input type="button" name="subtrair"
-                                    class="oper" value="-"
-                                    onclick="calcParse('subtrair')" /></td>
-                        </tr>
-                        <tr>
-                            <td><input type="button" name="num3" class="numero"
-                                    value="3" onclick="calculaNumero(3)" /></td>
-                            <td><input type="button" name="num2" class="numero"
-                                    value="2" onclick="calculaNumero(2)" /></td>
-                            <td><input type="button" name="num1" class="numero"
-                                    value="1" onclick="calculaNumero(1)" /></td>
-                            <td><input type="button" name="multiplicar"
-                                    class="oper" value="*"
-                                    onclick="calcParse('multiplicar')" /></td>
-                        </tr>
-                        <tr>
-                            <td><input type="button" name="num0" class="numero"
-                                    value="0" onclick="calculaNumero(0)" /></td>
-                            <td><input type="button" name="igual" class="numero"
-                                    value="="
-                                    onclick="calcParse('resultado')" /></td>
-                            <td><input type="button" name="limpar"
-                                    class="numero" value="AC"
-                                    onclick="calcLimpar()" /></td>
-                            <td><input type="button" name="dividir" class="oper"
-                                    value="÷"
-                                    onclick="calcParse('dividir')" /></td>
-                        </tr>
-                    </table>
-                </fieldset>
-            </form>
-
-        </div>
-
-    </body>
+<html lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport"
+                        content="width=device-width, initial-scale=1.0">
+                <title>Calculadora</title>
+                <link
+                        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+                        rel="stylesheet">
+                <link
+                        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap-dark.min.css"
+                        rel="stylesheet">
+                <link rel="stylesheet" href="index.css">
+        </head>
+        <body>
+                <div class="calculator">
+                        <div class="display" id="display">0</div>
+                        <div class="row">
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="clearDisplay()">C</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputOperator('/')">/</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputOperator('*')">x</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-danger btn-block"
+                                                onclick="deleteLast()">DEL</button>
+                                </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('7')">7</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('8')">8</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('9')">9</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputOperator('-')">-</button>
+                                </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('4')">4</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('5')">5</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('6')">6</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputOperator('+')">+</button>
+                                </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('1')">1</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('2')">2</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('3')">3</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="calculateResult()">=</button>
+                                </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-6">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('0')">0</button>
+                                </div>
+                                <div class="col-3">
+                                        <button
+                                                class="btn btn-secondary btn-block"
+                                                onclick="inputDigit('.')">.</button>
+                                </div>
+                        </div>
+                </div>
+                <script src="index.js"></script>
+        </body>
 </html>

@@ -1,56 +1,41 @@
-//Função que adiciona os numeros no visor quando pressionado os botões
-function calculaNumero(numero){
-    if(typeof gvisor == 'undefined'){
-        document.calcform.visor.value = '';
-    }
-    document.calcform.visor.value = document.calcform.visor.value + numero;
-    gvisor = 1;
-}
-//Função que limpa o visor da Calculadora
-function calcLimpar () {
-    document.calcform.visor.value = '';
-    delete gvalor;
-    delete goper;
-    delete gvisor;
+let displayValue = '0';
+
+function updateDisplay() {
+    document.getElementById('display').innerText = displayValue;
 }
 
-//Funções Matemáticas
-function calculaOperador (oper, valor1, valor2){
-    if(oper == "somar"){
-        var valor = parseFloat(valor1) + parseFloat(valor2);
-    }else{
-            if(oper == "subtrair"){
-                var valor = valor1 - valor2;
-            }else{
-                if(oper == "multiplicar"){
-                    var valor = valor1*valor2;
-                }else{
-                    if( oper == "dividir" && valor2 == 0){
-                        var valor = document.calcform.visor.value = 'Math Error'; 
-                    }else{
-                        var valor = valor1 / valor2;
-                    }
-
-                }
-            }
-        }
-        return(valor);
+function inputDigit(digit) {
+    if (displayValue === '0') {
+        displayValue = digit;
+    } else {
+        displayValue += digit;
     }
-
-
-//Função do algoritmo de transição das açoes do usuário
-
-function calcParse(oper){
-    var valor = document.calcform.visor.value;
-    delete gvisor;
-
-    if (typeof goper != 'undefined' && oper == 'resultado'){
-        gvalor = calculaOperador(goper, gvalor, valor);
-        goper = oper;
-        document.calcform.visor.value = gvalor;
-    }else{
-        gvalor = valor;
-        goper = oper;
-    }
+    updateDisplay();
 }
 
+function inputOperator(operator) {
+    displayValue += ' ' + operator + ' ';
+    updateDisplay();
+}
+
+function clearDisplay() {
+    displayValue = '0';
+    updateDisplay();
+}
+
+function deleteLast() {
+    displayValue = displayValue.slice(0, -1);
+    if (displayValue === '') {
+        displayValue = '0';
+    }
+    updateDisplay();
+}
+
+function calculateResult() {
+    try {
+        displayValue = eval(displayValue.replace('×', '*').replace('÷', '/')).toString();
+    } catch (e) {
+        displayValue = 'Error';
+    }
+    updateDisplay();
+}

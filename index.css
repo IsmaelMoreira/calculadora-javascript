@@ -1,68 +1,29 @@
-body, html {
-    margin: 0;
-    padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
 body {
-    background-color: #222;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    background-color: #343a40;
+    color: #ffffff;
+    font-family: 'orbitron';
+    
 }
-
-.fundo {
+.calculator {
+    max-width: 400px;
     margin: 50px auto;
-    width: 300px;
-}
-
-form {
-    text-align: center;
-}
-
-.alinhamento {
-    border: 2px solid #555;
-    border-radius: 8px;
     padding: 20px;
-    background-color: #333;
+    background-color: #212529;
+    border-radius: 10px;
 }
-
-#visor {
-    width: 100%;
-    height: 40px;
-    margin-bottom: 10px;
-    font-size: 18px;
+.calculator .display {
+    height: 60px;
+    background-color: #000000;
+    color: #ffffff;
     text-align: right;
-    background-color: #444;
-    color: #fff;
-    border: 1px solid #555;
-    border-radius: 4px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+.calculator button {
+    margin:5px;
 }
 
-.calculadora {
-    width: 100%;
-}
-
-.numero, .oper {
-    width: 100%;
-    height: 40px;
-    font-size: 16px;
-    margin-bottom: 5px;
-    background-color: #555;
-    color: #fff;
-    border: 1px solid #777;
-    border-radius: 4px;
-}
-
-#calc [name="igual"] {
-    background-color: #28a745;
-    color: #fff;
-}
-
-.oper {
-    background-color: #007bff;
-    color: #fff;
-}
-
-#calc [name="limpar"] {
-    background-color: #dc3545;
-    color: #fff;
-}
